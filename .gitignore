@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+venv/
+azure_deploy.zip
