@@ -335,22 +335,19 @@ if (existingTitles.includes(text)) {
 
     list.prepend(trip);
 
-   trip.querySelector(".delete-trip-btn")
-    .addEventListener("click", (e) => {
-
-      e.stopPropagation();
-
-      trip.remove();
-
-      localStorage.setItem(
-       "recentTrips",
-       list.innerHTML
-      );
-  });
-
   while (list.children.length > 10) {
     list.lastElementChild.remove();
   }
 
   localStorage.setItem("recentTrips", list.innerHTML);
 }
+
+document.getElementById("recent-trips-list")?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".delete-trip-btn");
+  if (!btn) return;
+
+  e.stopPropagation();
+  const list = document.getElementById("recent-trips-list");
+  btn.closest(".capability-item")?.remove();
+  localStorage.setItem("recentTrips", list.innerHTML);
+});
