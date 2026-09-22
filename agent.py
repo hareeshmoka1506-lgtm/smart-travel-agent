@@ -27,7 +27,7 @@ def add_weekdays(text) -> str:
 @tool
 def search_web_travel_tool(query: str) -> str:
     """Searches the live web for travel guides, flights, hotels, attractions, and local insights."""
-    return str(search_travel_web(query))[:3000]  # short results = fewer tokens = fewer 429 errors
+    return str(search_travel_web(query))[:1200]  
 
 
 @tool
